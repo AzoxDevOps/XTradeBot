@@ -1,0 +1,139 @@
+﻿.pair-select-container {
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.left, .right {
+    display: inline-flex;
+    padding: .25rem .5rem;
+}
+
+.left {
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+    .left > .bi-list {
+        line-height: 1;
+        font-size: 1.3em;
+        padding: 0 .25rem;
+    }
+
+.pair-display {
+    display: inline-flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.asset {
+    display: inline-flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+    .asset > span {
+        font-size: 1.2em;
+        line-height: 1;
+    }
+
+    .asset > .delimeter {
+        padding: 0 .25rem;
+    }
+
+.exchange-name {
+    display: flex;
+    --bs-text-opacity: .5;
+    font-size: .85em;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.right {
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    border-left: 1px solid rgba(255,255,255,0.5);
+}
+
+    .right > span {
+        line-height: 1.2;
+    }
+
+.index-price {
+    font-size: 1.2em;
+}
+
+.mark-price {
+    font-size: .85em;
+}
+
+.pair-select {
+}
+
+    .pair-select .nav-pills {
+        -ms-flex-direction: inherit;
+        -webkit-flex-direction: inherit;
+        flex-direction: inherit;
+    }
+
+.header {
+    font-size: .9em;
+}
+
+.pair {
+    display: flex;
+}
+
+.pair-item {
+    -ms-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%
+}
+
+    .pair-item .btn-sm {
+        font-size: .85em;
+        color: rgba(var(--bs-white-rgb),var(--bs-color-opacity));
+        padding: .25rem;
+    }
+
+        .pair-item .btn-sm.bi {
+            padding: .25rem .5rem;
+        }
+
+.pair-price {
+    display: flex;
+    -ms-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 25%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+    .pair-price span {
+        font-size: .85em;
+    }
+
+.pair-change {
+    display: flex;
+    -ms-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 25%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+    .pair-change span {
+        font-size: .85em;
+    }

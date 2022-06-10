@@ -1,0 +1,23 @@
+﻿<header class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">XTradeBot</a>
+        <MainMenu />
+        <ul class="nav">
+            <Notification />
+            <li class="nav-item dropdown user-menu">
+                <a class="nav-link bi bi-person d-none d-md-block" data-bs-toggle="dropdown"></a>
+                <a class="nav-link bi bi-person d-block d-md-none" data-bs-toggle="offcanvas" data-bs-target="#usermenu-offcanvas"></a>
+                <UserMenu OffCanvas="false" />
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="offcanvas offcanvas-start bg-dark sidebar" id="usermenu-offcanvas">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">&nbsp;</h5>
+        <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <UserMenu OffCanvas="true" />
+    </div>
+</div>

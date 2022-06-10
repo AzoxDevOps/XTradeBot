@@ -1,0 +1,175 @@
+﻿@if (Pairs != null && _selectedPair != null)
+{
+    <div class="pair-select-container">
+        <div class="left" data-bs-toggle="offcanvas" data-bs-target=".pair-select">
+            <span class="bi bi-list"></span>
+            <div class="pair-display">
+                <div class="asset">
+                    <span class="base">@_selectedPair.BaseAsset.Code</span>
+                    <span class="delimeter">/</span>
+                    <span class="quote">@_selectedPair.QuoteAsset.Code</span>
+                </div>
+                <span class="exchange-name text-white">@_selectedPair.Exchange.Name</span>
+            </div>
+
+        </div>
+        <div class="right">
+            <span class="index-price">@_selectedPair.Ticker.LastPrice</span>
+            <span class="mark-price">@_selectedPair.Ticker.LastPrice</span>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start bg-dark pair-select">
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title"></h1>
+            <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#fav">Favori</button>
+                </li>
+                @foreach (var item in MasterCurrencies)
+                {
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-@(item)">@item</button>
+                    </li>
+                }
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#all">Tümü</button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="fav">
+                    <div class="container-fluid">
+                        <div class="pair">
+                            <div class="pair-item">
+                                <label class="header">Parite</label>
+                            </div>
+                            <div class="pair-price">
+                                <label class="header">Fiyat</label>
+                            </div>
+                            <div class="pair-change">
+                                <label class="header">Değişim (%)</label>
+                            </div>
+                        </div>
+                        @foreach (var item in Pairs.Where(x => x.IsFavorite))
+                        {
+                            <div class="pair">
+                                <div class="pair-item">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-sm bi @(item.IsFavorite ? "bi-star-fill" : "bi-star")"
+                                                @onclick="() => item.IsFavorite = !item.IsFavorite"></button>
+                                        <button type="button" class="btn btn-sm">
+                                            <div class="pair-display">
+                                                <div class="asset">
+                                                    <span class="base">@item.BaseAsset.Code</span>
+                                                    <span class="delimeter">/</span>
+                                                    <span class="quote">@item.QuoteAsset.Code</span>
+                                                </div>
+                                                <span class="exchange-name text-white">@item.Exchange.Name</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="pair-price">
+                                    <span>@item.Ticker.LastPrice</span>
+                                </div>
+                                <div class="pair-change">
+                                    <span>@item.Ticker.Change</span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                @foreach (var cur in MasterCurrencies)
+                {
+                    <div class="tab-pane fade" id="tab-@(cur)">
+                        <div class="container-fluid">
+                            <div class="pair">
+                                <div class="pair-item">
+                                    <label class="header">Parite</label>
+                                </div>
+                                <div class="pair-price">
+                                    <label class="header">Fiyat</label>
+                                </div>
+                                <div class="pair-change">
+                                    <label class="header">Değişim (%)</label>
+                                </div>
+                            </div>
+                            @foreach (var item in Pairs.Where(x=>x.QuoteAsset.Code == cur))
+                            {
+                                <div class="pair">
+                                    <div class="pair-item">
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-sm bi @(item.IsFavorite ? "bi-star-fill" : "bi-star")"
+                                                    @onclick="() => item.IsFavorite = !item.IsFavorite"></button>
+                                            <button type="button" class="btn btn-sm">
+                                                <div class="pair-display">
+                                                    <div class="asset">
+                                                        <span class="base">@item.BaseAsset.Code</span>
+                                                        <span class="delimeter">/</span>
+                                                        <span class="quote">@item.QuoteAsset.Code</span>
+                                                    </div>
+                                                    <span class="exchange-name text-white">@item.Exchange.Name</span>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="pair-price">
+                                        <span>@item.Ticker.LastPrice</span>
+                                    </div>
+                                    <div class="pair-change">
+                                        <span>@item.Ticker.Change</span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+                <div class="tab-pane fade" id="all">
+                    <div class="container-fluid">
+                        <div class="pair">
+                            <div class="pair-item">
+                                <label class="header">Parite</label>
+                            </div>
+                            <div class="pair-price">
+                                <label class="header">Fiyat</label>
+                            </div>
+                            <div class="pair-change">
+                                <label class="header">Değişim (%)</label>
+                            </div>
+                        </div>
+                        @foreach (var item in Pairs)
+                        {
+                            <div class="pair">
+                                <div class="pair-item">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-sm bi @(item.IsFavorite ? "bi-star-fill" : "bi-star")"
+                                                @onclick="() => item.IsFavorite = !item.IsFavorite"></button>
+                                        <button type="button" class="btn btn-sm">
+                                            <div class="pair-display">
+                                                <div class="asset">
+                                                    <span class="base">@item.BaseAsset.Code</span>
+                                                    <span class="delimeter">/</span>
+                                                    <span class="quote">@item.QuoteAsset.Code</span>
+                                                </div>
+                                                <span class="exchange-name text-white">@item.Exchange.Name</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="pair-price">
+                                    <span>@item.Ticker.LastPrice</span>
+                                </div>
+                                <div class="pair-change">
+                                    <span>@item.Ticker.Change</span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

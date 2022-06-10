@@ -1,0 +1,7 @@
+﻿[
+  {
+    "outputFile": "wwwroot/dist/css/main.css",
+    "inputFile": "wwwroot/lib/css/main.scss",
+    "minify": { "enabled": true }
+  }
+]

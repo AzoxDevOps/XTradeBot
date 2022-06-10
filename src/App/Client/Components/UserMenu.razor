@@ -1,0 +1,34 @@
+﻿@if (OffCanvas)
+{
+    <ul class="nav flex-column">
+        <li class="nav-item">
+
+            <NavLink class="nav-link" href="/profile/exchanges" @onclick="@(() => OffcanvasOnClick("/profile/exchanges"))">
+                <i class="bi bi-gear"></i>
+                <span>Borsa</span>
+            </NavLink>
+            <a class="nav-link" @onclick="Logout">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Çıkış Yap</span>
+            </a>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+        <li>
+            <NavLink class="dropdown-item" href="/profile/exchanges">
+                <i class="bi bi-gear"></i>
+                <span>Borsa</span>
+            </NavLink>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+            <a class="dropdown-item" @onclick="Logout">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Çıkış Yap</span>
+            </a>
+        </li>
+    </ul>
+}
