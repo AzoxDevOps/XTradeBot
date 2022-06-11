@@ -10,6 +10,6 @@
         /// <summary>
         /// 
         /// </summary>
-        Task<IEnumerable<IMarketSymbol>> GetMarketSymbols(CancellationToken cancellationToken = default);
+        Task<ApiResponse<IEnumerable<IMarketSymbol>>> GetSpotMarketSymbols(CancellationToken cancellationToken = default);
     }
 }

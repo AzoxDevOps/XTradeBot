@@ -1,5 +1,6 @@
 ﻿namespace Azox.Core.DependencyInjection
 {
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
     /// <summary>
@@ -10,6 +11,6 @@
         /// <summary>
         /// 
         /// </summary>
-        void Register(IServiceCollection services);
+        void Register(IConfiguration configuration, IServiceCollection services);
     }
 }

@@ -3,7 +3,7 @@
     using Azox.Core.DependencyInjection;
     using Azox.Core.Reflection;
     using Azox.XTradeBot.Exchange.Core.Services;
-
+    using Azox.XTradeBot.Exchange.Core.Workers;
     using ProtoBuf.Grpc.Server;
 
     public class Startup
@@ -46,8 +46,10 @@
 
             foreach (IServiceRegister serviceRegister in TypeFinder.FindInstancesOf<IServiceRegister>())
             {
-                serviceRegister.Register(builder.Services);
+                serviceRegister.Register(builder.Configuration, builder.Services);
             }
+
+            builder.Services.AddHostedService<PairSyncWorker>();
 
             OnConfigureServices?.Invoke(builder);
         }

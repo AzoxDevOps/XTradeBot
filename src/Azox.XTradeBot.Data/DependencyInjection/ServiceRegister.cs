@@ -16,12 +16,11 @@
         /// <summary>
         /// 
         /// </summary>
-        public void Register(IServiceCollection services)
+        public void Register(IConfiguration configuration, IServiceCollection services)
         {
             services.AddDbContext<XTradeBotDbContext>((serviceProvider, options) =>
             {
-                string connectionString = serviceProvider
-                    .GetRequiredService<IConfiguration>()
+                string connectionString = configuration
                     .GetConnectionString(nameof(XTradeBot));
 
                 options.UseSqlServer(connectionString);

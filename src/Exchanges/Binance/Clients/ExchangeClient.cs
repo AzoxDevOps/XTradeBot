@@ -1,6 +1,7 @@
 ﻿namespace Azox.XTradeBot.App.Binance.Clients
 {
     using Azox.XTradeBot.Exchange.Core.Clients;
+    using Azox.XTradeBot.Exchange.Core.Configs;
 
     /// <summary>
     /// 
@@ -10,9 +11,9 @@
     {
         #region Ctor
 
-        public ExchangeClient()
+        public ExchangeClient(ExchangeConfig config)
         {
-            ApiClient = new ExchangeApiClient();
+            ApiClient = new ExchangeApiClient(config);
             WebSocketClient = new ExchangeWebSocketClient();
         }
 

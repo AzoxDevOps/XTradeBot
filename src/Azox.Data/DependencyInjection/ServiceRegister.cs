@@ -2,7 +2,7 @@
 {
     using Azox.Core.DependencyInjection;
     using Azox.Data;
-
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
     /// <summary>
@@ -14,7 +14,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public void Register(IServiceCollection services)
+        public void Register(IConfiguration configuration, IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

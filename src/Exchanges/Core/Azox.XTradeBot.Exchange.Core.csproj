@@ -12,6 +12,7 @@
 		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.5" />
 		<PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.0.152" />
 		<PackageReference Include="RestSharp" Version="108.0.1" />
+		<PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="108.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>

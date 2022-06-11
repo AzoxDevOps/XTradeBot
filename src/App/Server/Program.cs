@@ -30,7 +30,7 @@ namespace Azox.XTradeBot.App.Server
 
             foreach (IServiceRegister serviceRegister in TypeFinder.FindInstancesOf<IServiceRegister>())
             {
-                serviceRegister.Register(builder.Services);
+                serviceRegister.Register(builder.Configuration, builder.Services);
             }
         }
 
