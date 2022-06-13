@@ -39,6 +39,11 @@
         /// </summary>
         Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> expression);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        Task<int> SaveChangesAsync();
+
         #endregion Methods
     }
 }

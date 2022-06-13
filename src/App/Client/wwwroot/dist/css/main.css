@@ -43,6 +43,11 @@ body:before {
   background-size: 4.6875rem;
 }
 
+.root {
+  width: 100%;
+  height: 100%;
+}
+
 header,
 footer {
   --bs-bg-opacity: 0.95 !important;

@@ -5,7 +5,7 @@
     using Azox.XTradeBot.DomainModel;
 
     internal class ExchangePairService :
-        EntityBaseService<ExchangePair>,
+        EntityServiceBase<ExchangePair>,
         IExchangePairService
     {
         #region Ctor
@@ -17,5 +17,20 @@
         }
 
         #endregion Ctor
+
+        #region Methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public async Task<ExchangePair> Create(Exchange exchange, Currency baseAsset, Currency quoteAsset, ExchangePairType exchangePairType)
+        {
+            ExchangePair exchangePair = new(exchange, baseAsset, quoteAsset, exchangePairType);
+            await UnitOfWork.GetRepository<ExchangePair>().InsertAsync(exchangePair);
+
+            return exchangePair;
+        }
+
+        #endregion Methods
     }
 }

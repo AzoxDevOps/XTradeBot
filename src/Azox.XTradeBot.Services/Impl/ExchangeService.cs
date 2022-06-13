@@ -5,7 +5,7 @@
     using Azox.XTradeBot.DomainModel;
 
     internal class ExchangeService :
-        EntityBaseService<Exchange>,
+        EntityServiceBase<Exchange>,
         IExchangeService
     {
         #region Ctor

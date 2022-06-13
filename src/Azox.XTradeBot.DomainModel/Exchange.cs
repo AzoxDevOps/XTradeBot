@@ -29,12 +29,12 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual ExchangeExtended Extended { get; protected internal set; }
+        public virtual ExchangeExtended Extended { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<ExchangePair> Pairs { get; protected internal set; }
+        public virtual IEnumerable<ExchangePair> Pairs { get; private set; }
 
         #endregion Properties
     }

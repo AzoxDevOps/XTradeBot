@@ -5,7 +5,7 @@
     using Azox.XTradeBot.DomainModel;
 
     internal class CurrencyService :
-        EntityBaseService<Currency>,
+        EntityServiceBase<Currency>,
         ICurrencyService
     {
         #region Ctor
@@ -17,5 +17,17 @@
         }
 
         #endregion Ctor
+
+        #region Methods
+
+        public async Task<Currency> Create(string code, string name, string description)
+        {
+            Currency currency = new(code, name, description);
+            await UnitOfWork.GetRepository<Currency>().InsertAsync(currency);
+            
+            return currency;
+        }
+
+        #endregion Methods
     }
 }

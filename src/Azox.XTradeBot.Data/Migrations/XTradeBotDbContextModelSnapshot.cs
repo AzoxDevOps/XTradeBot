@@ -196,6 +196,268 @@ namespace Azox.XTradeBot.Data.Migrations
                     b.ToTable("ExchangePair", (string)null);
                 });
 
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreationTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(1)
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Extended")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FailedLoginAttemptCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnOrder(3);
+
+                    b.Property<bool>("IsLocked")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastLockTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LastLoginTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<DateTime?>("LastUpdatedTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<bool>("PasswordHashed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PasswordSalt")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<int?>("UserGroupId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreationTime");
+
+                    b.HasIndex("UserGroupId");
+
+                    b.HasIndex("Username")
+                        .IsUnique();
+
+                    b.ToTable("SystemUser", (string)null);
+                });
+
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUserCurrency", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("Available")
+                        .HasPrecision(36, 18)
+                        .HasColumnType("decimal(36,18)");
+
+                    b.Property<DateTime>("CreationTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(1)
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<int?>("CurrencyId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(4);
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnOrder(3);
+
+                    b.Property<DateTime?>("LastUpdatedTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(2);
+
+                    b.Property<decimal>("Locked")
+                        .HasPrecision(36, 18)
+                        .HasColumnType("decimal(36,18)");
+
+                    b.Property<decimal>("SoftLocked")
+                        .HasPrecision(36, 18)
+                        .HasColumnType("decimal(36,18)");
+
+                    b.Property<int?>("UserExchangeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreationTime");
+
+                    b.HasIndex("CurrencyId");
+
+                    b.HasIndex("UserExchangeId");
+
+                    b.ToTable("SystemUserCurrency", (string)null);
+                });
+
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUserExchange", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ApiKey")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<string>("ApiSecretKey")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<DateTime>("CreationTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(1)
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(4);
+
+                    b.Property<int?>("ExchangeId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnOrder(3);
+
+                    b.Property<DateTime?>("LastUpdatedTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(2);
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreationTime");
+
+                    b.HasIndex("ExchangeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SystemUserExchange", (string)null);
+                });
+
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUserGroup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnOrder(1);
+
+                    b.Property<DateTime>("CreationTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(4)
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(4000)
+                        .HasColumnType("nvarchar(4000)")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnOrder(6);
+
+                    b.Property<DateTime?>("LastUpdatedTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("CreationTime");
+
+                    b.ToTable("SystemUserGroup", (string)null);
+                });
+
             modelBuilder.Entity("Azox.XTradeBot.DomainModel.ExchangePair", b =>
                 {
                     b.HasOne("Azox.XTradeBot.DomainModel.Currency", "BaseAsset")
@@ -217,9 +479,63 @@ namespace Azox.XTradeBot.Data.Migrations
                     b.Navigation("QuoteAsset");
                 });
 
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUser", b =>
+                {
+                    b.HasOne("Azox.XTradeBot.DomainModel.SystemUserGroup", "UserGroup")
+                        .WithMany("Memberships")
+                        .HasForeignKey("UserGroupId");
+
+                    b.Navigation("UserGroup");
+                });
+
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUserCurrency", b =>
+                {
+                    b.HasOne("Azox.XTradeBot.DomainModel.Currency", "Currency")
+                        .WithMany()
+                        .HasForeignKey("CurrencyId");
+
+                    b.HasOne("Azox.XTradeBot.DomainModel.SystemUserExchange", "UserExchange")
+                        .WithMany("Currencies")
+                        .HasForeignKey("UserExchangeId");
+
+                    b.Navigation("Currency");
+
+                    b.Navigation("UserExchange");
+                });
+
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUserExchange", b =>
+                {
+                    b.HasOne("Azox.XTradeBot.DomainModel.Exchange", "Exchange")
+                        .WithMany()
+                        .HasForeignKey("ExchangeId");
+
+                    b.HasOne("Azox.XTradeBot.DomainModel.SystemUser", "User")
+                        .WithMany("Exchanges")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Exchange");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Azox.XTradeBot.DomainModel.Exchange", b =>
                 {
                     b.Navigation("Pairs");
+                });
+
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUser", b =>
+                {
+                    b.Navigation("Exchanges");
+                });
+
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUserExchange", b =>
+                {
+                    b.Navigation("Currencies");
+                });
+
+            modelBuilder.Entity("Azox.XTradeBot.DomainModel.SystemUserGroup", b =>
+                {
+                    b.Navigation("Memberships");
                 });
 #pragma warning restore 612, 618
         }

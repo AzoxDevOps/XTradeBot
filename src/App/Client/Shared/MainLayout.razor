@@ -1,7 +1,14 @@
 ﻿@inherits LayoutComponentBase
 
-<HeaderLayout />
-<main>
-    @Body
-</main>
-<FooterLayout />
+<AuthorizeView>
+    <Authorized>
+        <HeaderLayout />
+        <main>
+            @Body
+        </main>
+        <FooterLayout />
+    </Authorized>
+    <NotAuthorized>
+        <Login/>
+    </NotAuthorized>
+</AuthorizeView>

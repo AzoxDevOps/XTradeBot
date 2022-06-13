@@ -8,6 +8,11 @@
         /// <summary>
         /// 
         /// </summary>
+        public string ServiceEndpoint { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int? DefaultSelectedPairId { get; set; }
 
         /// <summary>

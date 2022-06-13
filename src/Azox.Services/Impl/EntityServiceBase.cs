@@ -14,7 +14,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract partial class EntityBaseService<TEntity> :
+    public abstract partial class EntityServiceBase<TEntity> :
         IEntityService<TEntity>
         where TEntity : class, IEntity
     {
@@ -26,47 +26,33 @@
 
         #region Ctor
 
-        public EntityBaseService(IUnitOfWork unitOfWork)
+        public EntityServiceBase(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
         #endregion Ctor
 
-        #region Utilities
-
-        private IQueryable<TEntity> GetAll()
-        {
-            string cacheKey = $"{typeof(TEntity).FullName}.all";
-
-            return _unitOfWork.Cache.GetOrCreate(cacheKey, (entry) =>
-            {
-                return ((IRepositoryInternal<TEntity>)EntityRepository).GetAll();
-            });
-        }
-
-        #endregion Utilities
-
         #region Methods
 
         public bool Any(Expression<Func<TEntity, bool>> expression)
         {
-            return GetAll().Any(expression);
+            return EntityRepository.Any(expression);
         }
 
         public int Count(Expression<Func<TEntity, bool>> expression)
         {
-            return GetAll().Count(expression);
+            return EntityRepository.Count(expression);
         }
 
         public IEnumerable<TEntity> Filter(Expression<Func<TEntity, bool>> expression)
         {
-            return GetAll().Where(expression);
+            return EntityRepository.Filter(expression);
         }
 
         public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> expression)
         {
-            return GetAll().FirstOrDefault(expression);
+            return EntityRepository.FirstOrDefault(expression);
         }
 
         public TEntity GetById(int id)
@@ -76,7 +62,12 @@
 
         public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> expression)
         {
-            return GetAll().SingleOrDefault(expression);
+            return EntityRepository.SingleOrDefault(expression);
+        }
+
+        public int SaveChanges()
+        {
+            return UnitOfWork.SaveChanges();
         }
 
         #endregion Methods

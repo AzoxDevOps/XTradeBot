@@ -8,6 +8,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Grpc.AspNetCore.Web" Version="2.46.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.5" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
 		  <PrivateAssets>all</PrivateAssets>
@@ -19,6 +20,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Azox.XTradeBot.Services\Azox.XTradeBot.Services.csproj" />
+		<ProjectReference Include="..\..\Exchanges\Shared\Azox.XTradeBot.Exchange.Shared.csproj" />
 		<ProjectReference Include="..\Client\Azox.XTradeBot.App.Client.csproj" />
 		<ProjectReference Include="..\Shared\Azox.XTradeBot.App.Shared.csproj" />
 	</ItemGroup>

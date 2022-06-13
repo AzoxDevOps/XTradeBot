@@ -22,10 +22,5 @@
         /// 
         /// </summary>
         public string PairSplitter { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int PairSyncInMin { get; set; } = 30;
     }
 }

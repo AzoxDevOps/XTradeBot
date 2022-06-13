@@ -20,4 +20,8 @@
 	  <ProjectReference Include="..\Shared\Azox.XTradeBot.Exchange.Shared.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Workers\" />
+	</ItemGroup>
+
 </Project>

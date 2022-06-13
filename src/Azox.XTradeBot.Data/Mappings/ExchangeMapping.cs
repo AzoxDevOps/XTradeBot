@@ -15,7 +15,7 @@
         {
             base.Configure(builder);
 
-            ValueConverter<ExchangeExtended?, string> converter = new(
+            ValueConverter<ExchangeExtended, string> converter = new(
                 v => JsonConvert.SerializeObject(v),
                 v => JsonConvert.DeserializeObject<ExchangeExtended>(v));
 

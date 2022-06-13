@@ -1,0 +1,65 @@
+﻿.root {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    padding-top: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    width: 90%;
+    max-width: 20rem;
+}
+
+input,
+input:-webkit-autofill {
+    --bs-bg-opacity: 0.05;
+    --bs-border-opacity: .3;
+    --bs-color-opacity: .75;
+    -moz-border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    border-radius: .5rem;
+    border-color: rgba(var(--bs-white-rgb),var(--bs-border-opacity));
+    color: rgba(var(--bs-white-rgb),var(--bs-color-opacity));
+    background-color: rgba(var(--bs-white-rgb),var(--bs-bg-opacity)) !important;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+}
+
+    input:focus,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        --bs-border-opacity: .5;
+        --bs-color-opacity: .75;
+        border-color: rgba(var(--bs-white-rgb),var(--bs-border-opacity));
+        color: rgba(var(--bs-white-rgb),var(--bs-color-opacity));
+        -moz-box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 25%);
+        -webkit-box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 25%);
+        box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 25%);
+    }
+
+button {
+    width: 100%;
+    font-weight: 600;
+    color: #3cd2a5;
+    border-color: #3cd2a5;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    -moz-border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    border-radius: .5rem;
+}
+
+    button:hover {
+        color: #000000;
+        background-color: #3cd2a5;
+    }
+
+@media (max-width:320px) {
+    form {
+        min-width:15rem;
+    }
+}

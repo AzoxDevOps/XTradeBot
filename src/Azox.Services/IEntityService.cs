@@ -43,6 +43,11 @@
         /// </summary>
         TEntity SingleOrDefault(Expression<Func<TEntity, bool>> expression);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        int SaveChanges();
+
         #endregion Methods
     }
 }

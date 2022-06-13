@@ -31,22 +31,22 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual Exchange? Exchange { get; protected internal set; }
+        public virtual Exchange? Exchange { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual Currency? BaseAsset { get; protected internal set; }
+        public virtual Currency? BaseAsset { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual Currency? QuoteAsset { get; protected internal set; }
+        public virtual Currency? QuoteAsset { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual ExchangePairType PairType { get; protected internal set; }
+        public virtual ExchangePairType PairType { get; private set; }
 
         /// <summary>
         /// 

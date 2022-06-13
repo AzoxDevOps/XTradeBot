@@ -1,4 +1,4 @@
-﻿namespace Azox.XTradeBot.Data.Mapping
+﻿namespace Azox.XTradeBot.Data.Mappings
 {
     using Azox.Data.Mappings;
     using Azox.XTradeBot.DomainModel;

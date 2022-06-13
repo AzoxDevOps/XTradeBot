@@ -28,7 +28,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual CurrencyExtended Extended { get; protected internal set; }
+        public virtual CurrencyExtended Extended { get; private set; }
 
         #endregion Properties
     }

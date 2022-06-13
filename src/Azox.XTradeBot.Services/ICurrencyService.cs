@@ -9,5 +9,9 @@
     public interface ICurrencyService :
         IEntityService<Currency>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        Task<Currency> Create(string code, string name, string description);
     }
 }

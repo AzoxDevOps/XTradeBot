@@ -1,0 +1,27 @@
+﻿@inherits LayoutComponentBase
+@page "/login"
+
+<main class="d-flex justify-content-center align-items-center">
+    <form @onsubmit="LoginAsync">
+        <div class="mb-3">
+            <label class="col-form-label" for="@nameof(Model.Username)">Kullanıcı Adı</label>
+            <input class="form-control" id="@nameof(Model.Username)" @bind-value="Model.Username" />
+        </div>
+        <div class="mb-3">
+            <label class="col-form-label" for="@nameof(Model.Password)">Şifre</label>
+            <input class="form-control" type="password" id="@nameof(Model.Password)" @bind-value="Model.Password" />
+        </div>
+        <div class="mb-3">
+            <button class="btn" type="submit" disabled="@LoginButtonIsBusy">
+                @if (LoginButtonIsBusy)
+                {
+                    <i class="spinner-border spinner-border-sm"></i>
+                }
+                else
+                {
+                    <span>Giriş Yap</span>
+                }
+            </button>
+        </div>
+    </form>
+</main>

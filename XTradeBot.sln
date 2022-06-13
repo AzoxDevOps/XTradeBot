@@ -36,7 +36,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azox.XTradeBot.App.Shared",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azox.XTradeBot.App.Client", "src\App\Client\Azox.XTradeBot.App.Client.csproj", "{E0672AB7-4995-4A22-80C1-9B9420CA0ECB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azox.XTradeBot.App.Binance", "src\Exchanges\Binance\Azox.XTradeBot.App.Binance.csproj", "{519DF657-C315-432B-875A-779A964D0F8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azox.XTradeBot.App.Binance", "src\Exchanges\Binance\Azox.XTradeBot.App.Binance.csproj", "{519DF657-C315-432B-875A-779A964D0F8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exchanges", "Exchanges", "{45E5632C-C93A-483D-9C7E-A5FE59574326}"
 EndProject
@@ -44,9 +44,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Binance", "Binance", "{C552
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{935E57B2-C47A-461B-B039-14861B696625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azox.XTradeBot.Exchange.Core", "src\Exchanges\Core\Azox.XTradeBot.Exchange.Core.csproj", "{67D9A415-C77B-4946-83EA-018450DBFB76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azox.XTradeBot.Exchange.Core", "src\Exchanges\Core\Azox.XTradeBot.Exchange.Core.csproj", "{67D9A415-C77B-4946-83EA-018450DBFB76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azox.XTradeBot.Exchange.Shared", "src\Exchanges\Shared\Azox.XTradeBot.Exchange.Shared.csproj", "{DEF5F1F8-BB46-4855-8AEE-8FDCC4BB3277}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azox.XTradeBot.Exchange.Shared", "src\Exchanges\Shared\Azox.XTradeBot.Exchange.Shared.csproj", "{DEF5F1F8-BB46-4855-8AEE-8FDCC4BB3277}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{D1C0F6E2-3427-46B6-8D83-E6D39D196973}"
 EndProject
